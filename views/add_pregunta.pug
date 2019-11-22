@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  h1 #{title}
+  form(method='POST', action='/preguntas/add')
+    #form-group
+      label Pregunta:
+      input.form-control(name='pregunta', type='text')
+    #form-group
+      label Opcion 1:
+      input.form-control(name='opcion1', type='text')
+    #form-group
+      label Opcion 2:
+      input.form-control(name='opcion2', type='text')
+    #form-group
+      label Opcion 3:
+      input.form-control(name='opcion3', type='text')
+    #form-group
+      label Opcion 4:
+      input.form-control(name='opcion4', type='text')
+    #form-group
+      label Respuesta Correcta:
+      input.form-control(name='respuesta', type='number', min=1, max=4, step=1)
+    br
+    input.btn.btn-primary(type='submit',value='Guardar')
+    br
+    br
+    table.table
+      tr
+        th Pregunta
+        th Accion
+      tbody
+        each preg in preguntas.length ? preguntas : ['There are no values']
+          tr
+            td #{preg.pregunta}
+            td
+              a.btn.btn-danger(href='#',data-id=preg._id) Eliminar

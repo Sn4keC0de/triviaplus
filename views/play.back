@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  h1 #{title}
+  ul.list-group
+    each pregunta, i in preguntas
+      li.list-group-item
+        a(href="/preguntas/"+article._id)= article.title
