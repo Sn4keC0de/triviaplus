@@ -1,4 +1,18 @@
 extends layout
 
 block content
-  h1 Prueba
+  h1 #{title}
+  each preg in preguntas.length ? preguntas : ['No hay preguntas disponibles']
+    h3 #{preg.pregunta}
+    br
+    input(type="radio" name="preg_"+preg.id value='1' checked=true)
+    label #{preg.opcion1}
+    br
+    input(type="radio" name="preg_"+preg.id value='2' )
+    label #{preg.opcion2}
+    br
+    input(type="radio" name="preg_"+preg.id value='3' )
+    label #{preg.opcion3}
+    br
+    input(type="radio" name="preg_"+preg.id value='4' )
+    label #{preg.opcion4}

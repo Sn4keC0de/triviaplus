@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const MAX_PREG = 2;
+
 
 // pregunta Model
 let Pregunta = require('../models/pregunta');
@@ -16,8 +18,28 @@ router.get('/add', ensureAuthenticated, function(req, res){
       preguntas: preguntas
     });
   })
-
 });
+
+router.get('/cuestionario', ensureAuthenticated, function(req, res){
+  Pregunta.find((err, items) => {
+    console.log(items)
+
+    preguntas = [];
+    for (var i = 0; i < MAX_PREG; i++) {
+//      let rnd = Math.floor( Math.random() * items.length);
+//      preguntas.push(items[rnd]);
+      preguntas.push(items[i]);
+    }
+    res.render('play', {
+      title:'JUGAR',
+      preguntas: preguntas,
+      MAX_PREG: MAX_PREG,
+      ite: items.length,
+      itep: preguntas.length
+    });
+  })
+});
+
 
 // Add Submit POST Route
 router.post('/add', function(req, res){
@@ -65,10 +87,10 @@ router.post('/add', function(req, res){
   }
 });
 
-// Load Edit Form
+// Formulaio de edicion
 router.get('/edit/:id', ensureAuthenticated, function(req, res){
   pregunta.findById(req.params.id, function(err, pregunta){
-    if(pregunta.author != req.user._id){
+    if(pregunta.pregunta != req.user._id){
       req.flash('danger', 'No esta autorizado');
       return res.redirect('/');
     }
@@ -78,6 +100,26 @@ router.get('/edit/:id', ensureAuthenticated, function(req, res){
     });
   });
 });
+
+
+router.get('/delete/:id', ensureAuthenticated, function(req, res) {
+  if(!req.params.id){
+    res.status(500).send();
+  }
+
+  let query = {_id:req.params.id}
+
+  Pregunta.findById(req.params.id, function(err, pregunta){
+      Pregunta.remove(query, function(err){
+        if(err){
+          console.log(err);
+        }
+        req.flash('success', 'Se elimino la pregunta');
+        res.redirect('/preguntas/add');
+        });
+  });  
+})
+
 
 // Update Submit POST Route
 router.post('/edit/:id', function(req, res){
@@ -100,6 +142,7 @@ router.post('/edit/:id', function(req, res){
 });
 
 // Delete pregunta
+/*
 router.delete('/:id', function(req, res){
   if(!req.user._id){
     res.status(500).send();
@@ -120,6 +163,7 @@ router.delete('/:id', function(req, res){
     }
   });
 });
+*/
 
 // Get Single pregunta
 router.get('/:id', function(req, res){

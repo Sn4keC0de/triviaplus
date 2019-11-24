@@ -30,8 +30,8 @@ block content
         th Pregunta
         th Accion
       tbody
-        each preg in preguntas.length ? preguntas : ['There are no values']
+        each preg in preguntas.length ? preguntas : ['No hay preguntas disponibles']
           tr
             td #{preg.pregunta}
             td
-              a.btn.btn-danger(href='#',data-id=preg._id) Eliminar
+              a.btn.btn-danger(href='/preguntas/delete/'+preg._id,data-id=preg._id) Eliminar
