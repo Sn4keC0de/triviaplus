@@ -179,13 +179,14 @@ router.get('/:id', function(req, res){
   */
 });
 
-// Get Single pregunta
+
+/*
 router.get('/cuestionario', ensureAuthenticated, function(req, res){
-  res.render('add_article', {
+  res.render('add_xxxxx', {
     title:'Agregar pregunta'
   });
 });
-
+*/
 
 // Access Control
 function ensureAuthenticated(req, res, next){
