@@ -1,0 +1,16 @@
+{
+  "env": {
+    "TZ": "UTC",
+    "NODE_ENV": "development",
+    "LOG_LEVEL": "debug"
+  },
+  "watch": [
+    "src"
+  ],
+  "ext": "ts",
+  "ignore": [
+    "src/**/*.spec.ts"
+  ],
+  "signal": "SIGTERM",
+  "exec": "npm run lint && ts-node -r tsconfig-paths/register src/main.ts"
+}

@@ -20,10 +20,10 @@ html
               a(href='/') Inicio
             if user
               li
-                a(href='/preguntas/cuestionario') Jugar
+                a(href='/users/cuestionario') Jugar
             if user && user.role=='admin'
               li
-                a(href='/preguntas/add') Agregar Preguntas
+                a(href='/users/add') Agregar Preguntas
           ul.nav.navbar-nav.navbar-right
             if user
               li 

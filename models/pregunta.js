@@ -30,3 +30,4 @@ let preguntaSchema = mongoose.Schema({
 });
 
 let Pregunta = module.exports = mongoose.model('Pregunta', preguntaSchema);
+

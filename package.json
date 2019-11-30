@@ -4,6 +4,7 @@
   "description": "Programa de trivias",
   "main": "app.js",
   "scripts": {
+    "debug": "nodemon --inspect app",
     "start": "node app"
   },
   "author": "Kevin Arenas",

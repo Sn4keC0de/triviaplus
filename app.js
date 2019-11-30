@@ -27,7 +27,7 @@ db.on('error', function(err){
 const app = express();
 
 // Bring in Models
-let Article = require('./models/article');
+let pregunta = require('./models/pregunta');
 
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
@@ -87,23 +87,23 @@ app.get('*', function(req, res, next){
 
 // Home Route
 app.get('/', function(req, res){
-  Article.find({}, function(err, articles){
+  pregunta.find({}, function(err, preguntas){
     if(err){
       console.log(err);
     } else {
       res.render('index', {
-        title:'Articles',
-        articles: articles
+        title:'Juego de Trivia (plus)',
+        preguntas: preguntas
       });
     }
   });
 });
 
 // Route Files
-let articles = require('./routes/articles');
+// let preguntas = require('./routes/preguntas');
 let users = require('./routes/users');
-app.use('/articles', articles);
 app.use('/users', users);
+// app.use('/preguntas', preguntas);
 
 let newUser = new User({
   nombre:'admin',
