@@ -209,7 +209,7 @@ router.get('/delete/:id', ensureAuthenticated, function(req, res) {
           console.log(err);
         }
         req.flash('success', 'Se elimino la pregunta');
-        res.redirect('/preguntas/add');
+        res.redirect('/users/add');
         });
   });  
 })

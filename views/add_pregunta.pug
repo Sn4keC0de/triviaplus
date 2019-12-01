@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1 #{title}
-  form(method='POST', action='/preguntas/add')
+  form(method='POST', action='/users/add')
     #form-group
       label Pregunta:
       input.form-control(name='pregunta', type='text')
@@ -34,4 +34,4 @@ block content
           tr
             td #{preg.pregunta}
             td
-              a.btn.btn-danger(href='/preguntas/delete/'+preg._id,data-id=preg._id) Eliminar
+              a.btn.btn-danger(href='/users/delete/'+preg._id,data-id=preg._id) Eliminar
