@@ -1,4 +1,9 @@
-npm install express mongoose pug passport poassport-local bcryptjs pug-cli
+npm install express mongoose pug passport poassport-local bcryptjs pug-cli nodemon
+
+para ejecutar
+nodemon <ENTER>
+
+
 
 
 para renderizar los pug...
