@@ -1,5 +1,6 @@
 module.exports = {
-  database: 'mongodb+srv://triviauser:!!Kevin2002@cluster0-w5wsy.mongodb.net/test?retryWrites=true&w=majority'
+  // database: 'mongodb+srv://triviauser:!!Kevin2002@cluster0-w5wsy.mongodb.net/test?retryWrites=true&w=majority'
+  database: 'mongodb://localhost:27017/tribia'
 }
 /*
   database:'mongodb://localhost:27017/mitrivia',
