@@ -20,7 +20,7 @@
     "mongoose": "^4.10.2",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-cli": "^1.0.0-alpha6"
   }
 }
